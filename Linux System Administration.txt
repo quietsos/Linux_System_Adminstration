@@ -1,0 +1,160 @@
+﻿Linux System Administration
+
+
+Why linux:
+1. Open Source
+2. Free to run the program for any purpose
+3. Free to study how the prgram works
+4. Free to change how the program worlds
+5. Free to redistribute copies
+Linux Distribution:
+1. Collection of software
+2. Package management system
+3. Helps you install, upgrade and remove software
+4. Keep server up to date and secure
+
+
+Popular Distribution:
+1. Red Hat
+   1. CentOS
+   2. Fedora
+2. Debian
+   1. Ubuntu 
+   2. Mint
+3. SuSE
+4. Gentoo
+5. Arch
+6. Slackware
+
+
+How can we run LINUX?
+1. Your own PC
+2. Someone else’s PC
+   1. Shared Hosting
+   2. Cloud Provider
+      1. Amazon Web Services
+      2. Google Cloud
+      3. Microsooft Azure
+
+
+
+
+3. Virtualization
+   1. VirtualBox
+   2. VMWare
+
+
+Linux Basic Commands:
+1. Show username:
+$ uname -a
+2. Show Current date
+$ date
+
+
+Switching to Bridged Networking:
+1. Connecting via SSH connection.
+
+
+
+
+
+
+
+
+Determine and Configure Hardware Settings:
+
+
+1. Udev
+   1. Device manager
+   2. Low lwvel access to the linux device tree
+   3. Handles user space events
+      1. Ex. Loading Firmware
+   4. Provided by temporary filesystem (tmpfs)
+   5. Mounted to /dev on startup
+
+
+2. Dbus
+   1. Inter-process communication mechanism
+   2. Framework that allows processes to talk each other 
+   3. Secure
+   4. Reliable
+   5. Provides high-level object oriented programming interface
+
+
+Command: 
+1. Process check:
+$ ps aux | head
+
+
+2. Message check:
+                $  sudo dmesg
+                $ sudo dmesg -T
+3. Hardware devices:
+$ cd /dev
+$ls ( We can see all the hardware devices here)
+
+
+# sysfs
+* Virtual filesystem
+* Presents information about various kernel subsystems
+   * Hardware devices
+   * Drivers
+* Mounted to /sys
+
+
+# procfs
+* Similar to sysfs
+* Presents information about process
+* Presents information about system information
+* Mounted to /proc
+   * Can be used to interface with the kernel
+   * Change parameters on the fly
+                $ cd /proc
+                        $ cat cmdline(kernel version)
+                        $ cat version(linux version)
+                        $ cat cpuinfo( CPU information)
+                        $ lsmod( check the module are running on the system)
+                        $ lsmod | less ( page by page used module shows)
+                        $ sudo rmmod [module name] ( used to remove the module)
+                        $ sudo modprobe [module name] ( restart the module)
+                        $ lspci ( See how hardware are configured/ all the pci devices           connected to the system)
+                        $ lspci -v
+                        $ lspci -vvv ( show all the devices connected to the system)
+
+
+
+
+# Run levels, boot targets also Shutdown and reboot a system:
+
+
+
+
+@ Run levels:
+* 0 -( Halt or shut down the system)
+* 1 -( single user mode)
+* 2 -(Multi user mode without networking)
+* 3 -(Normal boot)
+* 4 -(Unused/ Customizable)
+* 5 -(Run level 3 + GUI display manager)
+* 6 - ( Reboot)
+  
+
+
+
+$ man telinti ( showing the various service such as reboot, shutdown and many more)
+$ sudo wall Rebooting? ( Shows notification all the windows that system will rebooting)
+$ systemctl (Shows all the running service)
+         $ sudo systemctl status [service name]
+        $ sudo systemctl stop [service name]
+        $ sudo systemctl strat [service name]
+        $ sudo systemctl restart [service name]
+        $ sudo systemctl enable [service name]
+        $ sudo systemctl enable multi-user.target
+        $ sudo systemctl set-default multi-user.target
+
+
+
+
+
+
+# Designing Hardisk Layout:
